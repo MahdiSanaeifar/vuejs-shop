@@ -14,11 +14,19 @@
     <div class="container">
         <div class="row">
             <div class="well">
+
                 <div id="app">
+
                     <input type="text" class="form-control" v-on:input="changeTitle">
                     <br>
                     <p>{{ title }}</p>
+                    <p>{{ sayHello() }}</p>
+                    <p>{{ sayBye() }}</p>
+
+                    <a v-bind:href="link">Toplearn</a>
+
                 </div>
+
             </div>
         </div>
     </div>

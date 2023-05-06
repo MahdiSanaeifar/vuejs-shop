@@ -7,6 +7,18 @@
     <title>Install Vue.js</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="asset/css/bootstrap.min.css" />
+
+    <style>
+        .bordered {
+            border: 2px solid red;
+            width: 300px;
+            height: 300px;
+            padding: 10px;
+            border-radius: 10px;
+
+        }
+    </style>
+
 </head>
 
 <body>
@@ -15,7 +27,8 @@
         <div class="row">
             <div class="well">
 
-                <div id="app">
+                <!-- Events 1 -->
+                <!-- <div id="app">
 
                     <input type="text" class="form-control" v-on:input="changeTitle">
                     <br>
@@ -25,7 +38,29 @@
 
                     <a v-bind:href="link">Toplearn</a>
 
+                </div> -->
+                <!-- end events 1 -->
+
+                <!-- events 2 -->
+                <div id="app">
+
+                    <div class="col-md-3">
+                        <a class="btn btn-success btn-block" v-on:click="Increase(3, $event)">{{ counter }}</a>
+                        <p v-once> first :{{ counter }}</p>
+                        <p> second :{{ counter }}</p>
+                    </div>
+
+
+                    <div class="col-md-9">
+                        <div class="bordered" v-on:mousemove="GetCursor">
+                            <p> client x : {{ x }}</p>
+                            <p> client y : {{ y }}</p>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
                 </div>
+                <!-- end events 2 -->
 
             </div>
         </div>

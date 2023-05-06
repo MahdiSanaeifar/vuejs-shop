@@ -20,21 +20,42 @@
 // });
 
 // Events 2
+// new Vue({
+//     el: '#app',
+//     data: {
+//         counter: 5,
+//         x: 0,
+//         y: 0
+//     },
+//     methods: {
+//         Increase: function (step, obj) {
+//             debugger;
+//             this.counter += step;
+//         },
+//         GetCursor: function (event) {
+//             this.x = event.clientX;
+//             this.y = event.clientY;
+//         }
+//     },
+// });
+
+// Events 3
 new Vue({
     el: '#app',
     data: {
-        counter: 5,
         x: 0,
         y: 0
     },
     methods: {
-        Increase: function (step, obj) {
-            debugger;
-            this.counter += step;
-        },
         GetCursor: function (event) {
             this.x = event.clientX;
             this.y = event.clientY;
+        },
+        test: function (event) {
+            event.stopPropagation();
+        },
+        alert: function () {
+            alert('hello');
         }
     },
 });

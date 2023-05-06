@@ -42,7 +42,7 @@
                 <!-- end events 1 -->
 
                 <!-- events 2 -->
-                <div id="app">
+                <!-- <div id="app">
 
                     <div class="col-md-3">
                         <a class="btn btn-success btn-block" v-on:click="Increase(3, $event)">{{ counter }}</a>
@@ -59,8 +59,40 @@
                     </div>
 
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end events 2 -->
+
+                <!-- events 3 -->
+                <div id="app">
+                    <div class="col-md-4">
+                        <div class="bordered" v-on:mousemove="GetCursor">
+                            <p v-on:mousemove="test"> <span>client x : {{ x }}</span></p>
+                            <p v-on:mousemove.self.stop> <span>client y : {{ y }}</span></p>
+                            <p v-on:click.once="alert"> <span>client y : {{ y }}</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                register
+                            </div>
+                            <div class="panel-body">
+
+                                <form action="" method="POST" role="form">
+                                    <div class="form-group">
+                                        <label for="">label</label>
+                                        <input type="text" class="form-control" placeholder="Input field"
+                                            v-on:keyup.shift="alert">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end events 3 -->
 
             </div>
         </div>

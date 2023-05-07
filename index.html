@@ -7,17 +7,7 @@
     <title>Install Vue.js</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="asset/css/bootstrap.min.css" />
-
-    <style>
-        .bordered {
-            border: 2px solid red;
-            width: 300px;
-            height: 300px;
-            padding: 10px;
-            border-radius: 10px;
-
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="asset/css/style.css" /0>
 
 </head>
 
@@ -63,7 +53,7 @@
                 <!-- end events 2 -->
 
                 <!-- events 3 -->
-                <div id="app">
+                <!-- <div id="app">
                     <div class="col-md-4">
                         <div class="bordered" v-on:mousemove="GetCursor">
                             <p v-on:mousemove="test"> <span>client x : {{ x }}</span></p>
@@ -91,8 +81,25 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end events 3 -->
+
+                <!-- computed -->
+                <div id="app">
+                    <div class="col-md-3">
+                        <a v-on:click="counter++" class="btn btn-success btn-block"> Increase counter</a>
+                        <a v-on:click="counter--" class="btn btn-success btn-block"> Decrease counter</a>
+                        <a v-on:click="secondCounter++" class="btn btn-success btn-block"> Increase secondCounter</a>
+                        <br>
+                        <p>counter : {{ counter }}</p>
+                        <p>secondCounter : {{ secondCounter }}</p>
+                        <p> result : {{ GetResult() }}</p>
+                        <p> computed result : {{ GetComputedResult }}</p>
+                        <input type="text" class="form-control" v-model="counter">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end computed -->
 
             </div>
         </div>

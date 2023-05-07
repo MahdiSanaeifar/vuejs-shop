@@ -40,22 +40,44 @@
 // });
 
 // Events 3
+// new Vue({
+//     el: '#app',
+//     data: {
+//         x: 0,
+//         y: 0
+//     },
+//     methods: {
+//         GetCursor: function (event) {
+//             this.x = event.clientX;
+//             this.y = event.clientY;
+//         },
+//         test: function (event) {
+//             event.stopPropagation();
+//         },
+//         alert: function () {
+//             alert('hello');
+//         }
+//     },
+// });
+
+// Computed
 new Vue({
     el: '#app',
     data: {
-        x: 0,
-        y: 0
+        counter: 0,
+        result: '',
+        secondCounter: 0
     },
     methods: {
-        GetCursor: function (event) {
-            this.x = event.clientX;
-            this.y = event.clientY;
-        },
-        test: function (event) {
-            event.stopPropagation();
-        },
-        alert: function () {
-            alert('hello');
+        GetResult: function () {
+            console.log('GetResult');
+            return this.counter > 5 ? 'greater than 5' : 'less than 5';
+        }
+    },
+    computed: {
+        GetComputedResult: function () {
+            console.log('GetComputedResult');
+            return this.counter > 5 ? 'greater than 5' : 'less than 5';
         }
     },
 });

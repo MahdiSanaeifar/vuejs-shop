@@ -116,7 +116,7 @@
                 <!-- end watch -->
 
                 <!-- styling -->
-                <div id="app">
+                <!-- <div id="app">
                     <div class="col-md-12">
                         <div class="demo" v-bind:style="{'background-color':'red','width':'150px'}"></div>
                         <div class="demo" v-bind:style="myStyle"></div>
@@ -132,8 +132,24 @@
                         <input type="number" class="form-control" v-model="width">
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end styling -->
+
+                <!-- class -->
+                <div id="app">
+                    <div class="col-md-12">
+                        <div class="demo" :class="Class1" @click="attachRed=!attachRed"></div>
+                        <div class="demo" :class="{red:attachRed}"></div>
+                        <div class="demo" :class="[className,{red:attachRed}]"></div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div class="form-group">
+                            <input type="text" class="form-control" v-model="className">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end class -->
 
             </div>
         </div>

@@ -106,18 +106,36 @@
 // });
 
 // Styling
+// new Vue({
+//     el: '#app',
+//     data: {
+//         color: 'red',
+//         width: 150
+//     },
+//     computed: {
+//         myStyle: function () {
+//             return {
+//                 backgroundColor: 'red',
+//                 width: '150px'
+//             };
+//         }
+//     }
+// });
+
+// Class
 new Vue({
     el: '#app',
     data: {
-        color: 'red',
-        width: 150
+        title: 'hello world to you',
+        attachRed: true,
+        className: ''
     },
     computed: {
-        myStyle: function () {
+        Class1: function () {
             return {
-                backgroundColor: 'red',
-                width: '150px'
+                red: this.attachRed,
+                blue: !this.attachRed
             };
         }
-    }
+    },
 });

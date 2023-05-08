@@ -83,24 +83,41 @@
 // });
 
 // Watch
+// new Vue({
+//     el: '#app',
+//     data: {
+//         counter: 0,
+//         result: ''
+//     },
+//     computed: {
+//         GetComputedResult: function () {
+//             return this.counter > 5 ? 'greater than 5' : 'less than 5';
+//         }
+//     },
+//     watch: {
+//         counter: function (value) {
+//             if (value > 10) {
+//                 setInterval(() => {
+//                     this.counter = 0;
+//                 }, 3000);
+//             }
+//         }
+//     }
+// });
+
+// Styling
 new Vue({
     el: '#app',
     data: {
-        counter: 0,
-        result: ''
+        color: 'red',
+        width: 150
     },
     computed: {
-        GetComputedResult: function () {
-            return this.counter > 5 ? 'greater than 5' : 'less than 5';
-        }
-    },
-    watch: {
-        counter: function (value) {
-            if (value > 10) {
-                setInterval(() => {
-                    this.counter = 0;
-                }, 3000);
-            }
+        myStyle: function () {
+            return {
+                backgroundColor: 'red',
+                width: '150px'
+            };
         }
     }
 });

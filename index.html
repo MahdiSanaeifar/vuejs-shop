@@ -103,7 +103,7 @@
 
 
                 <!-- watch -->
-                <div id="app">
+                <!-- <div id="app">
                     <div class="col-md-3">
                         <a v-on:click="counter++" class="btn btn-success btn-block"> Increase counter</a>
                         <a v-on:click="counter--" class="btn btn-success btn-block"> Decrease counter</a>
@@ -112,8 +112,28 @@
                         <p> computed result : {{ GetComputedResult }}</p>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end watch -->
+
+                <!-- styling -->
+                <div id="app">
+                    <div class="col-md-12">
+                        <div class="demo" v-bind:style="{'background-color':'red','width':'150px'}"></div>
+                        <div class="demo" v-bind:style="myStyle"></div>
+                        <div class="demo" v-bind:style="{'background-color':color,width:width+'px'}"></div>
+                        <div class="demo" v-bind:style="[myStyle,{'height':'150px'}]"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" v-model="color">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" v-model="width">
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end styling -->
 
             </div>
         </div>

@@ -61,23 +61,46 @@
 // });
 
 // Computed
+// new Vue({
+//     el: '#app',
+//     data: {
+//         counter: 0,
+//         result: '',
+//         secondCounter: 0
+//     },
+//     methods: {
+//         GetResult: function () {
+//             console.log('GetResult');
+//             return this.counter > 5 ? 'greater than 5' : 'less than 5';
+//         }
+//     },
+//     computed: {
+//         GetComputedResult: function () {
+//             console.log('GetComputedResult');
+//             return this.counter > 5 ? 'greater than 5' : 'less than 5';
+//         }
+//     },
+// });
+
+// Watch
 new Vue({
     el: '#app',
     data: {
         counter: 0,
-        result: '',
-        secondCounter: 0
-    },
-    methods: {
-        GetResult: function () {
-            console.log('GetResult');
-            return this.counter > 5 ? 'greater than 5' : 'less than 5';
-        }
+        result: ''
     },
     computed: {
         GetComputedResult: function () {
-            console.log('GetComputedResult');
             return this.counter > 5 ? 'greater than 5' : 'less than 5';
         }
     },
+    watch: {
+        counter: function (value) {
+            if (value > 10) {
+                setInterval(() => {
+                    this.counter = 0;
+                }, 3000);
+            }
+        }
+    }
 });

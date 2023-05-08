@@ -85,7 +85,7 @@
                 <!-- end events 3 -->
 
                 <!-- computed -->
-                <div id="app">
+                <!-- <div id="app">
                     <div class="col-md-3">
                         <a v-on:click="counter++" class="btn btn-success btn-block"> Increase counter</a>
                         <a v-on:click="counter--" class="btn btn-success btn-block"> Decrease counter</a>
@@ -98,8 +98,22 @@
                         <input type="text" class="form-control" v-model="counter">
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end computed -->
+
+
+                <!-- watch -->
+                <div id="app">
+                    <div class="col-md-3">
+                        <a v-on:click="counter++" class="btn btn-success btn-block"> Increase counter</a>
+                        <a v-on:click="counter--" class="btn btn-success btn-block"> Decrease counter</a>
+                        <br>
+                        <p>counter : {{ counter }}</p>
+                        <p> computed result : {{ GetComputedResult }}</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end watch -->
 
             </div>
         </div>

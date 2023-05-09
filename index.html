@@ -152,7 +152,7 @@
                 <!-- end class -->
 
                 <!-- conditional -->
-                <div id="app">
+                <!-- <div id="app">
                     <div class="col-md-12">
                         <template v-if="show">
                             <p>show me with if</p>
@@ -166,8 +166,43 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end conditional -->
+
+                <!-- loop -->
+                <div id="app">
+                    <ul>
+                        <li v-for="(name,index) in names" :key="name">
+                            {{ name }} ({{ index }})
+                        </li>
+                    </ul>
+                    <div class="col-md-3">
+                        <a class="btn btn-success btn-block" v-on:click="names.push('ali');"> add name </a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <ul>
+                        <li v-for="(name,index) in names">
+                            <span>{{ name }}</span> -
+                            <span>({{ index }})</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li v-for="person in persons">
+                            <!-- <p>name : {{ person.name }}</p>
+                            <p>family : {{ person.family }}</p>
+                            <p>age : {{ person.age }}</p> -->
+                            <p v-for="(value,key,index) in person">{{ key }} : {{ value }} - ({{index}})</p>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div>
+                        <span v-for="n in 10"> ({{ n }})</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end loop -->
 
             </div>
         </div>

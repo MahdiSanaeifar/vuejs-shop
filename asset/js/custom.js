@@ -141,10 +141,22 @@
 // });
 
 // Condition
+// new Vue({
+//     el: '#app',
+//     data: {
+//         show: false,
+//         test: false
+//     }
+// });
+
+// Loop
 new Vue({
     el: '#app',
     data: {
-        show: false,
-        test: false
+        names: ['mohammad', 'iman', 'elnaz'],
+        persons: [
+            { name: 'mohammad', family: 'ordookhani', age: 22 },
+            { name: 'reyhane', family: 'ordookhani', age: 7 }
+        ]
     }
 });

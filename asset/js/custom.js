@@ -123,19 +123,28 @@
 // });
 
 // Class
+// new Vue({
+//     el: '#app',
+//     data: {
+//         title: 'hello world to you',
+//         attachRed: true,
+//         className: ''
+//     },
+//     computed: {
+//         Class1: function () {
+//             return {
+//                 red: this.attachRed,
+//                 blue: !this.attachRed
+//             };
+//         }
+//     },
+// });
+
+// Condition
 new Vue({
     el: '#app',
     data: {
-        title: 'hello world to you',
-        attachRed: true,
-        className: ''
-    },
-    computed: {
-        Class1: function () {
-            return {
-                red: this.attachRed,
-                blue: !this.attachRed
-            };
-        }
-    },
+        show: false,
+        test: false
+    }
 });

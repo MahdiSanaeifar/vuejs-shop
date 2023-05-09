@@ -136,7 +136,7 @@
                 <!-- end styling -->
 
                 <!-- class -->
-                <div id="app">
+                <!-- <div id="app">
                     <div class="col-md-12">
                         <div class="demo" :class="Class1" @click="attachRed=!attachRed"></div>
                         <div class="demo" :class="{red:attachRed}"></div>
@@ -148,8 +148,26 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end class -->
+
+                <!-- conditional -->
+                <div id="app">
+                    <div class="col-md-12">
+                        <template v-if="show">
+                            <p>show me with if</p>
+                            <p>show me with if by test property</p>
+                            <p>show me with else</p>
+                        </template>
+                        <p v-show="show">show me with show directive</p>
+                        <div class="col-md-3">
+                            <a class="btn btn-success btn-block" @click="show = !show">swich</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end conditional -->
 
             </div>
         </div>

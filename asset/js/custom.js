@@ -150,13 +150,72 @@
 // });
 
 // Loop
-new Vue({
-    el: '#app',
-    data: {
-        names: ['mohammad', 'iman', 'elnaz'],
-        persons: [
-            { name: 'mohammad', family: 'ordookhani', age: 22 },
-            { name: 'reyhane', family: 'ordookhani', age: 7 }
-        ]
+// new Vue({
+//     el: '#app',
+//     data: {
+//         names: ['mohammad', 'iman', 'elnaz'],
+//         persons: [
+//             { name: 'mohammad', family: 'ordookhani', age: 22 },
+//             { name: 'reyhane', family: 'ordookhani', age: 7 }
+//         ]
+//     }
+// });
+
+// Instance
+
+/** clean code */
+var data = {
+    title: 'this is app 1',
+    IsShowTitle: true
+}
+
+var appMethods = {
+    ShowTitle: function () {
+        this.IsShowTitle = true;
+    },
+    HideTitle: function () {
+        this.IsShowTitle = false;
     }
+};
+
+var app1 = new Vue({
+    el: '#app1',
+    data: data,
+    methods: appMethods,
+    watch: {
+        title: function () {
+            alert('title is changed');
+            this.$refs.ShowTitleButton.innerText = 'changed by ref';
+        }
+    }
+});
+
+app1.newTitle = "new title created from out";
+console.log(app1);
+setTimeout(() => {
+    app1.title = 'changed by timer';
+}, 3000);
+
+var app2 = new Vue({
+    el: '#app2',
+    data: {
+        title: 'this is app 2',
+        IsShowTitle: true
+    },
+    methods: {
+        ShowTitle: function () {
+            this.IsShowTitle = true;
+        },
+        HideTitle: function () {
+            this.IsShowTitle = false;
+        },
+        ChangeApp1Title: function () {
+            app1.title = 'changed by app 2';
+        }
+    }
+});
+
+var app3 = new Vue({
+    el: '',
+    data: {}
 });

@@ -170,7 +170,7 @@
                 <!-- end conditional -->
 
                 <!-- loop -->
-                <div id="app">
+                <!-- <div id="app">
                     <ul>
                         <li v-for="(name,index) in names" :key="name">
                             {{ name }} ({{ index }})
@@ -190,9 +190,9 @@
                     <hr>
                     <ul>
                         <li v-for="person in persons">
-                            <!-- <p>name : {{ person.name }}</p>
+                            <p>name : {{ person.name }}</p>
                             <p>family : {{ person.family }}</p>
-                            <p>age : {{ person.age }}</p> -->
+                            <p>age : {{ person.age }}</p>
                             <p v-for="(value,key,index) in person">{{ key }} : {{ value }} - ({{index}})</p>
                         </li>
                     </ul>
@@ -201,8 +201,28 @@
                         <span v-for="n in 10"> ({{ n }})</span>
                     </div>
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end loop -->
+
+                <!-- instance -->
+                <div id="app1">
+                    <h1 v-if="IsShowTitle"> {{ title }} </h1>
+                    <button @click="ShowTitle" ref="ShowTitleButton">show</button>
+                    <button @click="HideTitle">hide</button>
+                    <div class="clearfix"></div>
+                </div>
+
+                <hr>
+
+                <div id="app2">
+                    <h1 v-if="IsShowTitle"> {{ title }} </h1>
+                    <button @click="ShowTitle">show</button>
+                    <button @click="HideTitle">hide</button>
+                    <button @click="ChangeApp1Title">Change Title</button>
+
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end instance -->
 
             </div>
         </div>

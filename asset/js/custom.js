@@ -164,58 +164,87 @@
 // Instance
 
 /** clean code */
+// var data = {
+//     title: 'this is app 1',
+//     IsShowTitle: true
+// }
+
+// var appMethods = {
+//     ShowTitle: function () {
+//         this.IsShowTitle = true;
+//     },
+//     HideTitle: function () {
+//         this.IsShowTitle = false;
+//     }
+// };
+
+// var app1 = new Vue({
+//     el: '#app1',
+//     data: data,
+//     methods: appMethods,
+//     watch: {
+//         title: function () {
+//             alert('title is changed');
+//             this.$refs.ShowTitleButton.innerText = 'changed by ref';
+//         }
+//     }
+// });
+
+// app1.newTitle = "new title created from out";
+// console.log(app1);
+// setTimeout(() => {
+//     app1.title = 'changed by timer';
+// }, 3000);
+
+// var app2 = new Vue({
+//     el: '#app2',
+//     data: {
+//         title: 'this is app 2',
+//         IsShowTitle: true
+//     },
+//     methods: {
+//         ShowTitle: function () {
+//             this.IsShowTitle = true;
+//         },
+//         HideTitle: function () {
+//             this.IsShowTitle = false;
+//         },
+//         ChangeApp1Title: function () {
+//             app1.title = 'changed by app 2';
+//         }
+//     }
+// });
+
+// var app3 = new Vue({
+//     el: '',
+//     data: {}
+// });
+
+
+
+// Component
 var data = {
-    title: 'this is app 1',
-    IsShowTitle: true
+    title: 'this is title'
 }
-
-var appMethods = {
-    ShowTitle: function () {
-        this.IsShowTitle = true;
-    },
-    HideTitle: function () {
-        this.IsShowTitle = false;
-    }
-};
-
-var app1 = new Vue({
-    el: '#app1',
-    data: data,
-    methods: appMethods,
-    watch: {
-        title: function () {
-            alert('title is changed');
-            this.$refs.ShowTitleButton.innerText = 'changed by ref';
-        }
-    }
-});
-
-app1.newTitle = "new title created from out";
-console.log(app1);
-setTimeout(() => {
-    app1.title = 'changed by timer';
-}, 3000);
-
-var app2 = new Vue({
-    el: '#app2',
-    data: {
-        title: 'this is app 2',
-        IsShowTitle: true
+var component = {
+    data: function () {
+        return {
+            title: 'this is title'
+        };
     },
     methods: {
-        ShowTitle: function () {
-            this.IsShowTitle = true;
-        },
-        HideTitle: function () {
-            this.IsShowTitle = false;
-        },
-        ChangeApp1Title: function () {
-            app1.title = 'changed by app 2';
+        changeTitle: function () {
+            this.title = 'changed title';
         }
+    },
+    template: '<div> <p> titile : {{title}} </p> <br/> <button @click="changeTitle">change title</button> </div>'
+};
+new Vue({
+    el: '#app',
+    components:{
+        'my-component':component
     }
 });
-
-var app3 = new Vue({
-    el: '',
-    data: {}
+new Vue({
+    el: '#app2'
 });

@@ -205,7 +205,7 @@
                 <!-- end loop -->
 
                 <!-- instance -->
-                <div id="app1">
+                <!-- <div id="app1">
                     <h1 v-if="IsShowTitle"> {{ title }} </h1>
                     <button @click="ShowTitle" ref="ShowTitleButton">show</button>
                     <button @click="HideTitle">hide</button>
@@ -221,8 +221,30 @@
                     <button @click="ChangeApp1Title">Change Title</button>
 
                     <div class="clearfix"></div>
-                </div>
+                </div> -->
                 <!-- end instance -->
+
+                <!-- component -->
+
+                <div id="app">
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div id="app2">
+                    
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- end component -->
 
             </div>
         </div>

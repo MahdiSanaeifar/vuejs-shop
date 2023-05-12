@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Install Vue.js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="asset/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="asset/css/style.css" /0>
+
+</head>
+
+<body>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="well">
+
+                <!-- Events 1 -->
+                <!-- <div id="app">
+
+                    <input type="text" class="form-control" v-on:input="changeTitle">
+                    <br>
+                    <p>{{ title }}</p>
+                    <p>{{ sayHello() }}</p>
+                    <p>{{ sayBye() }}</p>
+
+                    <a v-bind:href="link">Toplearn</a>
+
+                </div> -->
+                <!-- end events 1 -->
+
+                <!-- events 2 -->
+                <!-- <div id="app">
+
+                    <div class="col-md-3">
+                        <a class="btn btn-success btn-block" v-on:click="Increase(3, $event)">{{ counter }}</a>
+                        <p v-once> first :{{ counter }}</p>
+                        <p> second :{{ counter }}</p>
+                    </div>
+
+
+                    <div class="col-md-9">
+                        <div class="bordered" v-on:mousemove="GetCursor">
+                            <p> client x : {{ x }}</p>
+                            <p> client y : {{ y }}</p>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end events 2 -->
+
+                <!-- events 3 -->
+                <!-- <div id="app">
+                    <div class="col-md-4">
+                        <div class="bordered" v-on:mousemove="GetCursor">
+                            <p v-on:mousemove="test"> <span>client x : {{ x }}</span></p>
+                            <p v-on:mousemove.self.stop> <span>client y : {{ y }}</span></p>
+                            <p v-on:click.once="alert"> <span>client y : {{ y }}</span></p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                register
+                            </div>
+                            <div class="panel-body">
+
+                                <form action="" method="POST" role="form">
+                                    <div class="form-group">
+                                        <label for="">label</label>
+                                        <input type="text" class="form-control" placeholder="Input field"
+                                            v-on:keyup.shift="alert">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end events 3 -->
+
+                <!-- computed -->
+                <!-- <div id="app">
+                    <div class="col-md-3">
+                        <a v-on:click="counter++" class="btn btn-success btn-block"> Increase counter</a>
+                        <a v-on:click="counter--" class="btn btn-success btn-block"> Decrease counter</a>
+                        <a v-on:click="secondCounter++" class="btn btn-success btn-block"> Increase secondCounter</a>
+                        <br>
+                        <p>counter : {{ counter }}</p>
+                        <p>secondCounter : {{ secondCounter }}</p>
+                        <p> result : {{ GetResult() }}</p>
+                        <p> computed result : {{ GetComputedResult }}</p>
+                        <input type="text" class="form-control" v-model="counter">
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end computed -->
+
+
+                <!-- watch -->
+                <!-- <div id="app">
+                    <div class="col-md-3">
+                        <a v-on:click="counter++" class="btn btn-success btn-block"> Increase counter</a>
+                        <a v-on:click="counter--" class="btn btn-success btn-block"> Decrease counter</a>
+                        <br>
+                        <p>counter : {{ counter }}</p>
+                        <p> computed result : {{ GetComputedResult }}</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end watch -->
+
+                <!-- styling -->
+                <!-- <div id="app">
+                    <div class="col-md-12">
+                        <div class="demo" v-bind:style="{'background-color':'red','width':'150px'}"></div>
+                        <div class="demo" v-bind:style="myStyle"></div>
+                        <div class="demo" v-bind:style="{'background-color':color,width:width+'px'}"></div>
+                        <div class="demo" v-bind:style="[myStyle,{'height':'150px'}]"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" v-model="color">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="number" class="form-control" v-model="width">
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end styling -->
+
+                <!-- class -->
+                <!-- <div id="app">
+                    <div class="col-md-12">
+                        <div class="demo" :class="Class1" @click="attachRed=!attachRed"></div>
+                        <div class="demo" :class="{red:attachRed}"></div>
+                        <div class="demo" :class="[className,{red:attachRed}]"></div>
+                        <div class="clearfix"></div>
+                        <hr>
+                        <div class="form-group">
+                            <input type="text" class="form-control" v-model="className">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end class -->
+
+                <!-- conditional -->
+                <!-- <div id="app">
+                    <div class="col-md-12">
+                        <template v-if="show">
+                            <p>show me with if</p>
+                            <p>show me with if by test property</p>
+                            <p>show me with else</p>
+                        </template>
+                        <p v-show="show">show me with show directive</p>
+                        <div class="col-md-3">
+                            <a class="btn btn-success btn-block" @click="show = !show">swich</a>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end conditional -->
+
+                <!-- loop -->
+                <!-- <div id="app">
+                    <ul>
+                        <li v-for="(name,index) in names" :key="name">
+                            {{ name }} ({{ index }})
+                        </li>
+                    </ul>
+                    <div class="col-md-3">
+                        <a class="btn btn-success btn-block" v-on:click="names.push('ali');"> add name </a>
+                    </div>
+                    <div class="clearfix"></div>
+                    <hr>
+                    <ul>
+                        <li v-for="(name,index) in names">
+                            <span>{{ name }}</span> -
+                            <span>({{ index }})</span>
+                        </li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li v-for="person in persons">
+                            <p>name : {{ person.name }}</p>
+                            <p>family : {{ person.family }}</p>
+                            <p>age : {{ person.age }}</p>
+                            <p v-for="(value,key,index) in person">{{ key }} : {{ value }} - ({{index}})</p>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div>
+                        <span v-for="n in 10"> ({{ n }})</span>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end loop -->
+
+                <!-- instance -->
+                <!-- <div id="app1">
+                    <h1 v-if="IsShowTitle"> {{ title }} </h1>
+                    <button @click="ShowTitle" ref="ShowTitleButton">show</button>
+                    <button @click="HideTitle">hide</button>
+                    <div class="clearfix"></div>
+                </div>
+
+                <hr>
+
+                <div id="app2">
+                    <h1 v-if="IsShowTitle"> {{ title }} </h1>
+                    <button @click="ShowTitle">show</button>
+                    <button @click="HideTitle">hide</button>
+                    <button @click="ChangeApp1Title">Change Title</button>
+
+                    <div class="clearfix"></div>
+                </div> -->
+                <!-- end instance -->
+
+                <!-- component -->
+
+                <div id="app">
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <hr>
+                    <my-component></my-component>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div id="app2">
+                    
+                    <div class="clearfix"></div>
+                </div>
+
+                <!-- end component -->
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="asset/js/vue.js"></script>
+<script src="asset/js/custom.js"></script>
+
+</html>

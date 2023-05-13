@@ -1,9 +1,9 @@
 {
-  "name": "shop",
-  "description": "A Vue.js project",
+  "name": "install-vue",
+  "description": "install-vue",
   "version": "1.0.0",
-  "author": "mahdisanaeifar <mahdisanaeifar@gmail.com>",
-  "license": "MIT",
+  "author": "Mohammad",
+  "license": "Mohammad",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",

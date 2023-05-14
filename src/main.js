@@ -1,8 +1,18 @@
 import Vue from "vue";
 import App from "./App.vue";
-import AppFooter from "./components/shared/AppFooter.vue";
 
-Vue.component("app-footer", AppFooter);
+export const BusEvent = new Vue({
+  methods: {
+    changeAge(age) {
+      this.$emit("changeAge", age);
+    }
+  },
+  data() {
+    return {
+      PublicAge: 45
+    };
+  }
+});
 
 new Vue({
   el: "#app",

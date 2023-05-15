@@ -1,39 +1,145 @@
 <template>
   <div class="container">
+    <h1 id="header">Form</h1>
+    <hr>
     <div class="row">
-      <div class="col-md-12">
-        <div class="bordered">
-          <h1>{{ msg }}</h1>
-          <hr>
-          <a class="btn btn-success" @click="selectedComponent='app-component-1'">component 1</a>
-          <a class="btn btn-success" @click="selectedComponent='app-component-2'">component 2</a>
-          <hr>
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Form Inputs :</div>
+          <div class="panel-body">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                class="form-control"
+                placeholder="enter your email"
+                v-model.lazy="user.email"
+              >
+            </div>
+            <div class="form-group">
+              <label for="age">Age</label>
+              <input
+                type="number"
+                name="age"
+                id="age"
+                class="form-control"
+                placeholder="enter your age"
+                v-model="user.age"
+              >
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                class="form-control"
+                placeholder="enter your password"
+                v-model="user.password"
+              >
+            </div>
+            <hr>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea class="form-control" v-model="message"></textarea>
+            </div>
+            <hr>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="ReciveMail" v-model="recieveTypes"> Recive Mail
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="ReciveMessages" v-model="recieveTypes"> Recive Messages
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="ReciveCalls" v-model="recieveTypes"> Recive Calls
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label>
+                    <input type="radio" value="male" v-model="gender"> Male
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="radio">
+                  <label>
+                    <input type="radio" value="female" id="ReciveMessages" v-model="gender"> Female
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+            <hr>
+            <div class="form-group">
+              <select id="selectOptions" class="form-control" v-model="selectedPriority">
+                <option v-for="item in priorities" :key="item">{{ item }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          <keep-alive>
-            <component :is="selectedComponent">
-              <template v-if="selectedComponent=='app-component-1'">
-                <div slot="header">
-                  <h2>{{title1}}</h2>
-                  <p>{{title1}}</p>
-                </div>
-                <p slot="paragraph">test</p>
-                <div slot="footer">
-                  <h3>sent footer</h3>
-                </div>
-              </template>
+      <div class="col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">Input Results :</div>
+          <div class="panel-body">
+            <div>
+              <span>Email :</span>
+              <strong>{{ user.email }}</strong>
+            </div>
 
-              <template v-if="selectedComponent=='app-component-2'">
-                <div slot="header">
-                  <h2>{{title2}}</h2>
-                  <p>{{title2}}</p>
-                </div>
-                <p slot="paragraph">test</p>
-                <div slot="footer">
-                  <h3>sent footer</h3>
-                </div>
-              </template>
-            </component>
-          </keep-alive>
+            <div>
+              <span>Age :</span>
+              <strong>{{ user.age }}</strong>
+            </div>
+
+            <div>
+              <span>Password :</span>
+              <strong>{{ user.password }}</strong>
+            </div>
+
+            <div>
+              <span>TextArea Message :</span>
+              <strong style="white-space:pre">{{ message }}</strong>
+            </div>
+            <hr>
+            <ul>
+              <li v-for="item in recieveTypes" :key="item">{{ item }}</li>
+            </ul>
+            <hr>
+            <div>
+              <span>User Gender :</span>
+              <strong>{{ gender }}</strong>
+            </div>
+            <div>
+              <span>User Priority :</span>
+              <strong>{{ selectedPriority }}</strong>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -41,31 +147,35 @@
 </template>
 
 <script>
-import Component1 from "./components/Component1";
-import Component2 from "./components/Component2";
 export default {
   data() {
     return {
-      msg: "this is the main component",
-      title1: "title for component 1",
-      title2: "title for component 2",
-      selectedComponent: "app-component-1"
+      user: {
+        email: "",
+        age: 22,
+        password: ""
+      },
+      message: "",
+      recieveTypes: [],
+      gender: "male",
+      priorities: ["high", "medium", "low"],
+      selectedPriority: "low"
     };
-  },
-  components: {
-    "app-component-1": Component1,
-    "app-component-2": Component2
   }
 };
 </script>
 
-<style scoped>
-.bordered {
-  border: 2px solid red;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: lightgray;
+<style>
+#header {
+  text-align: center;
+}
+
+span {
+  color: red;
+  font-size: 1.5em;
+}
+
+textarea {
+  resize: vertical;
 }
 </style>
-

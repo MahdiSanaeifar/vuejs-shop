@@ -2,34 +2,46 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h1>Create Custom Directives</h1>
+        <h1>{{ title }}</h1>
         <hr>
-        <p v-custom:textcolor.delayed="'yellow'">this paragraph has custom directive</p>
-        <hr>
-        <p v-test="{color:'blue',padding:'30px',fontSize:'2em'}">this paragraph has local directive</p>
+        <p>{{ title | toUpper }}</p>
+        <p>{{ title | toLower }}</p>
+        <p>{{ title | toLower | toUpper }}</p>
       </div>
+      <div class="clearfix"></div>
+      <hr>
+      <div class="form-group">
+        <label>filter names :</label>
+        <input type="text" class="form-control" v-model="filterText">
+      </div>
+      <ul>
+        <li v-for="name in filteredNames" :key="name">{{ name }}</li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {},
-  directives: {
-    test: {
-      bind(el, binding, vnode) {
-        el.style.padding = binding.value.padding;
-        el.style.color = binding.value.color;
-        el.style.fontSize = binding.value.fontSize;
-        el.style.backgroundColor = "green";
-      }
+  name: "app",
+  data() {
+    return {
+      title: "Filters in Vue",
+      names: ["mohammad", "milad", "iman", "elnaz", "reza", "shirin"],
+      filterText: ""
+    };
+  },
+  filters: {
+    toUpper(value) {
+      return value.toUpperCase();
+    }
+  },
+  computed: {
+    filteredNames() {
+      return this.names.filter(element => {
+        return element.match(this.filterText);
+      });
     }
   }
 };
 </script>
-
-<style>
-h1 {
-  text-align: center;
-}
-</style>

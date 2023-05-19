@@ -26,6 +26,21 @@
         <button type="submit" class="btn btn-success" @click="submitForm">Send</button>
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success" @click="GetUsers">Get Users</button>
+        <br>
+        <br>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            v-for="user in Users"
+            :key="user.Email"
+          >{{ user.UserName }} - {{ user.Email }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -37,21 +52,34 @@ export default {
       User: {
         UserName: "",
         Email: ""
-      }
+      },
+      Users: []
     };
   },
   methods: {
     submitForm() {
+      this.$http.post("", this.User).then(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    },
+    GetUsers() {
       this.$http
-        .post("https://vue-resource-32d1a.firebaseio.com/User.json", this.User)
-        .then(
-          response => {
-            console.log(response);
-          },
-          error => {
-            console.log(error);
+        .get("")
+        .then(response => {
+          return response.json();
+        })
+        .then(data => {
+          const resutlArray = [];
+          for (let key in data) {
+            resutlArray.push(data[key]);
           }
-        );
+          this.Users = resutlArray;
+        });
     }
   }
 };

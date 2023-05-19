@@ -53,23 +53,27 @@ export default {
         UserName: "",
         Email: ""
       },
-      Users: []
+      Users: [],
+      resource: {}
     };
   },
   methods: {
     submitForm() {
-      this.$http.post("", this.User).then(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        }
-      );
+      // this.$http.post("User.json", this.User).then(
+      //   response => {
+      //     console.log(response);
+      //   },
+      //   error => {
+      //     console.log(error);
+      //   }
+      // );
+
+      // this.resource.save({}, this.User);
+      this.resource.SaveUser(this.User);
     },
     GetUsers() {
       this.$http
-        .get("")
+        .get("User.json")
         .then(response => {
           return response.json();
         })
@@ -81,6 +85,14 @@ export default {
           this.Users = resutlArray;
         });
     }
+  },
+  created() {
+    const customActions = {
+      SaveUser: { url: "User.json", method: "POST" },
+      EditUser: { url: "Car.json", method: "PUT" }
+    };
+
+    this.resource = this.$resource("User.json", {}, customActions);
   }
 };
 </script>

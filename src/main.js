@@ -4,7 +4,7 @@ import App from './App.vue';
 
 Vue.use(VueResource);
 
-Vue.http.options.root = "https://vue-resource-32d1a.firebaseio.com/User.json";
+Vue.http.options.root = "https://vue-resource-32d1a.firebaseio.com/";
 
 Vue.http.interceptors.push((request, next) => {
 
@@ -12,9 +12,9 @@ Vue.http.interceptors.push((request, next) => {
 
   console.log(request);
 
-  if (request.method === 'POST') {
-    request.method = "PUT";
-  }
+  // if (request.method === 'POST') {
+  //   request.method = "PUT";
+  // }
 
   next(response => {
     console.log(response);

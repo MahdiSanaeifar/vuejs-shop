@@ -5,7 +5,9 @@
         <h1>Routing</h1>
         <app-header></app-header>
         <hr>
-        <router-view></router-view>
+        <transition enter-active-class="animated fadeIn">
+          <router-view></router-view>
+        </transition>
       </div>
     </div>
   </div>

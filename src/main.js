@@ -1,27 +1,20 @@
 import Vue from 'vue';
-import VueResource from 'vue-resource';
+import VueRouter from 'vue-router';
+import {
+  Routes
+} from './Routes.js'
 import App from './App.vue';
 
-Vue.use(VueResource);
+Vue.use(VueRouter);
 
-Vue.http.options.root = "https://vue-resource-32d1a.firebaseio.com/";
-
-Vue.http.interceptors.push((request, next) => {
-
-  request.headers.set('Authentication', 'this is for auth');
-
-  console.log(request);
-
-  // if (request.method === 'POST') {
-  //   request.method = "PUT";
-  // }
-
-  next(response => {
-    console.log(response);
-  });
+const router = new VueRouter({
+  routes: Routes,
+  mode : 'history'
 });
+
 
 new Vue({
   el: '#app',
+  router,
   render: h => h(App)
-});
+})

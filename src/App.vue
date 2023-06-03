@@ -1,23 +1,25 @@
 <template>
   <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Routing</h1>
-        <app-header></app-header>
-        <hr>
-        <transition enter-active-class="animated fadeIn">
-          <router-view></router-view>
-        </transition>
-      </div>
-    </div>
+    <h1>Vuex</h1>
+    <hr>
+    <app-result></app-result>
+    <hr>
+    <h2>another result</h2>
+    <another-result></another-result>
+    <hr>
+    <app-counter></app-counter>
   </div>
 </template>
 
 <script>
-import Header from "./Components/Header";
+import Counter from "./Components/Counter";
+import Result from "./Components/Result";
+import AnotherResult from "./Components/AnotherResult";
 export default {
   components: {
-    appHeader: Header
+    appCounter: Counter,
+    appResult: Result,
+    anotherResult: AnotherResult
   }
 };
 </script>

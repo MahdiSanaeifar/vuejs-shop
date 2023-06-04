@@ -8,18 +8,23 @@
     <another-result></another-result>
     <hr>
     <app-counter></app-counter>
+    <hr>
+    <div class="alert alert-success">another counter</div>
+    <another-counter></another-counter>
   </div>
 </template>
 
 <script>
 import Counter from "./Components/Counter";
+import AnotherCounter from "./Components/AnotherCounter";
 import Result from "./Components/Result";
 import AnotherResult from "./Components/AnotherResult";
 export default {
   components: {
     appCounter: Counter,
     appResult: Result,
-    anotherResult: AnotherResult
+    anotherResult: AnotherResult,
+    anotherCounter: AnotherCounter
   }
 };
 </script>
